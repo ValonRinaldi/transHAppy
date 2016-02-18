@@ -17,6 +17,7 @@ import static android.support.test.espresso.matcher.ViewMatchers.withText;
 
 /**
  * Created by vrinaldi on 30/01/16.
+ * Testing Git push Gregor
  */
 
 @RunWith(AndroidJUnit4.class)

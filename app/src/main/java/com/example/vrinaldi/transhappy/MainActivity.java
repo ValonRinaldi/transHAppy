@@ -1,12 +1,12 @@
 package com.example.vrinaldi.transhappy;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
 import android.widget.Button;
 
 import java.util.List;
@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView res1On;
     private TextView res1Duration;
     private TextView res1Trail;
+    private Button ChangeActivityButton;
     private IOpenTransportRepository transRep = new LocalOpenTransportRepository();
 
 
@@ -37,13 +38,15 @@ public class MainActivity extends AppCompatActivity {
         fromParam = (EditText) findViewById(R.id.searchFromText);
         toParam = (EditText) findViewById(R.id.searchToText);
 
-        searchButton = (Button) findViewById(R.id.sarchButton);
+        searchButton = (Button) findViewById(R.id.searchButton);
         searchButton.setOnClickListener(new SearchButtonListener());
 
         res1Off = (TextView) findViewById(R.id.firstResOff);
         res1On = (TextView) findViewById(R.id.firstResOn);
         res1Duration = (TextView) findViewById(R.id.firstResDuration);
         res1Trail = (TextView) findViewById(R.id.firstResTrail);
+        ChangeActivityButton = (Button) findViewById(R.id.ShowResults);
+        ChangeActivityButton.setOnClickListener(Listener);
     }
 
 
@@ -83,4 +86,12 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+
+    View.OnClickListener Listener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent intent = new Intent(MainActivity.this, SearchResultsOverview.class);
+            startActivity(intent);
+        }
+    };
 }

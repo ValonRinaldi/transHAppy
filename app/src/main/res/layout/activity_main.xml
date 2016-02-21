@@ -9,126 +9,111 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.vrinaldi.transhappy.MainActivity">
 
-
     <TableLayout
-        android:id="@+id/searchParamsTable"
+        android:id="@+id/fromToTbl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
-
+        <!-- FROM -->
         <TableRow
             android:id="@+id/fromRow">
-
             <TextView
-                android:id="@id/requestFrom"
+                android:id="@+id/requestFrom"
                 android:text="@id/requestFrom"
-                android:textSize="20dp" />
-
+                android:textSize="18dp" />
             <EditText
                 android:id="@+id/searchFromText"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18dp"/>
         </TableRow>
-
+        <!-- TO -->
         <TableRow
             android:id="@+id/toRow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
-
             <TextView
                 android:id="@id/requestTo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@id/requestTo"
-                android:textSize="20dp" />
-
+                android:textSize="18dp" />
             <EditText
                 android:id="@+id/searchToText"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:textSize="18dp"/>
         </TableRow>
-
         <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
+            android:id="@+id/reverseRow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
             <Button
+                android:id="@+id/btnReverse"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="ShowResults"
-                android:id="@+id/ShowResults"
-                android:layout_column="0"
-                android:layout_span="2" />
+                android:text="@id/reverseButton"/>
+            <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:id="@+id/rGrDepArr">
+                <RadioButton android:id="@+id/rbtnDeparture"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@id/departure"
+                    android:onClick="onRadioButtonClicked"/>
+                <RadioButton android:id="@+id/rbtnArrival"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@id/arrival"
+                    android:onClick="onRadioButtonClicked"/>
+            </RadioGroup>
         </TableRow>
     </TableLayout>
-
+    <TableLayout
+        android:id="@+id/dateTimeTbl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/fromToTbl">
+        <!-- Date -->
+        <TableRow android:id="@+id/dateRow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/btnChangeDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@id/changeDateButton" />
+        </TableRow>
+        <TableRow>
+            <DatePicker
+                android:id="@+id/dpResult"
+                android:layout_width="wrap_content"
+                android:layout_height="300px" />
+        </TableRow>
+        <!-- TIME -->
+        <TableRow android:id="@+id/timeRow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/btnChangeTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@id/changeTimeButton" />
+        </TableRow>
+        <TableRow>
+            <TimePicker
+                android:id="@+id/tpResult"
+                android:layout_width="wrap_content"
+                android:layout_height="80dp" />
+        </TableRow>
+    </TableLayout>
+    <!-- Search Button -->
     <Button
         android:id="@+id/searchButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/searchParamsTable"
+        android:layout_below="@id/dateTimeTbl"
         android:layout_span="2"
         android:text="@id/search" />
-
-    <TableLayout
-        android:id="@+id/resultTable"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_below="@id/searchButton"
-        >
-
-        <TableRow
-            android:id="@+id/headerRow"
-            android:color="@color/colorPrimary">
-            <TextView
-                android:id="@id/off"
-                android:layout_marginRight="40dp"
-                android:text="@id/off"
-                android:textSize="20dp"
-                />
-            <TextView
-                android:id="@id/on"
-                android:layout_marginRight="50dp"
-                android:text="@id/on"
-                android:textSize="20dp"
-                />
-            <TextView
-                android:id="@id/duration"
-                android:layout_marginRight="40dp"
-                android:text="@id/duration"
-                android:textSize="20dp"
-                />
-            <TextView
-                android:id="@id/trail"
-                android:text="@id/trail"
-                android:textSize="20dp"
-                />
-        </TableRow>
-
-        <TableRow
-            android:id="@+id/firstResult">
-            <TextView
-                android:id="@+id/firstResOff"
-                android:textSize="20dp"
-                />
-
-            <TextView
-                android:id="@+id/firstResOn"
-                android:textSize="20dp"
-                />
-
-            <TextView
-                android:id="@+id/firstResDuration"
-                android:textSize="20dp"
-                />
-
-
-            <TextView
-                android:id="@+id/firstResTrail"
-                android:textSize="20dp"
-                />
-
-        </TableRow>
-
-    </TableLayout>
-
 </RelativeLayout>

@@ -18,11 +18,18 @@ public class SearchResultsOverview extends AppCompatActivity {
     private TextView mFrom;
     private Button mResults_DetailButton;
 
+    private SearchParams searchParams = new SearchParams();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_results_overview);
+
+        /**
+        Intent intent = getIntent();
+        String data = intent.getStringExtra("SearchParams");
+        searchParams = SearchParams.parse(data); */
 
         //Assign view from the layoutfile to the corresponding variables
         final TextView mArr = (TextView) findViewById(R.id.results_Arr);
@@ -42,9 +49,6 @@ public class SearchResultsOverview extends AppCompatActivity {
                 startActivity(intent);
 
             }
-
-            ;
-
 
         };
 

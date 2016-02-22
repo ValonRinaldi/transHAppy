@@ -18,7 +18,8 @@ public class SearchResultsOverview extends AppCompatActivity {
     private TextView mFrom;
     private Button mResults_DetailButton;
 
-    private SearchParams searchParams = new SearchParams();
+   //22.1 aukommentiert. Klasse search params muss erst noch implementiert werden
+   // private SearchParams searchParams = new SearchParams();
 
 
     @Override

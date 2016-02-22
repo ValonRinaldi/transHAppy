@@ -84,7 +84,8 @@ public class MainActivity extends AppCompatActivity  {
         rBtnArrival.setOnClickListener(radioBtnListener);
 
         searchButton = (Button) findViewById(R.id.searchButton);
-        searchButton.setOnClickListener(searchBtnListener);
+       //22.1 auskommentiert von Gregor damits kompiliert
+       // searchButton.setOnClickListener(searchBtnListener);
     }
 
     private View.OnClickListener reverseBtnListener = new View.OnClickListener() {
@@ -186,6 +187,10 @@ public class MainActivity extends AppCompatActivity  {
         }
     };
 
+
+    /*22.1 auskommentiert von Gregor da Klasse searchParams noch nicht exisitert
+
+
     private View.OnClickListener searchBtnListener = new View.OnClickListener() {
         @TargetApi(Build.VERSION_CODES.M)
         @Override
@@ -202,7 +207,7 @@ public class MainActivity extends AppCompatActivity  {
 
         /**    Intent intent = new Intent(MainActivity.this, SearchResultsOverview.class);
             intent.putExtra("SearchParams", searchParams.toString());
-            startActivity(intent); */
+            startActivity(intent);
         }
-    };
+    };*/
 }

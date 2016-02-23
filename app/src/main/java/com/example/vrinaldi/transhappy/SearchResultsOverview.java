@@ -5,7 +5,16 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.text.ParseException;
+import java.util.concurrent.ExecutionException;
+
+import ch.schoeb.opendatatransport.IOpenTransportRepository;
+import ch.schoeb.opendatatransport.OpenTransportRepositoryFactory;
+import ch.schoeb.opendatatransport.model.ConnectionList;
 
 
 /**
@@ -18,8 +27,8 @@ public class SearchResultsOverview extends AppCompatActivity {
     private TextView mFrom;
     private Button mResults_DetailButton;
 
-   //22.1 aukommentiert. Klasse search params muss erst noch implementiert werden
-   // private SearchParams searchParams = new SearchParams();
+
+   private SearchParams searchParams = new SearchParams();
 
 
     @Override
@@ -27,34 +36,35 @@ public class SearchResultsOverview extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_results_overview);
 
-        /**
         Intent intent = getIntent();
         String data = intent.getStringExtra("SearchParams");
-        searchParams = SearchParams.parse(data); */
+        try {
+            searchParams = SearchParams.parse(data);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
 
-        //Assign view from the layoutfile to the corresponding variables
-        final TextView mArr = (TextView) findViewById(R.id.results_Arr);
-        final TextView mFrom = (TextView) findViewById(R.id.results_From);
-        Button mResults_DetailButton = (Button) findViewById(R.id.results_DetailsButton);
+        ConnectionWorker connectionWorker = new ConnectionWorker();
+        connectionWorker.execute(searchParams);
+        ConnectionList result = null;
+
+        try {
+            result = connectionWorker.get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+
+        ConnectionAdapter connectionAdapter = new ConnectionAdapter(this, result.getConnections());
+        ListView listView = (ListView) findViewById(R.id.listView);
+        listView.setAdapter(connectionAdapter);
 
 
-        View.OnClickListener listener = new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Final Goal: Change to the reseultdetail activity for the selected connections
-
-                //To test button:
-                String testString = "From: Basel";
-                mFrom.setText(testString);
-                Intent intent = new Intent(SearchResultsOverview.this, SearchResultsDetail.class);
-                startActivity(intent);
-
-            }
-
-        };
-
-        mResults_DetailButton.setOnClickListener(listener);
-
+        /** //Assign view from the layoutfile to the corresponding variables
+        TextView mFrom = (TextView) findViewById(R.id.results_From);
+        TextView mArr = (TextView) findViewById(R.id.results_Arr);
+        Button mResults_DetailButton = (Button) findViewById(R.id.results_DetailsButton); */
 
     };
 };

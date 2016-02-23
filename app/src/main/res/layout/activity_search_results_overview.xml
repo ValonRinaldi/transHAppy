@@ -5,6 +5,8 @@
     android:paddingLeft="16dp"
     android:paddingRight="16dp">
 
+
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -24,7 +26,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="From: "
-        android:id="@+id/results_From"
+        android:id="@+id/fromInput"
         android:textSize="20sp"
          />
 
@@ -32,7 +34,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="To: "
-        android:id="@+id/results_To"
+        android:id="@+id/toInput"
         android:textSize="20sp" />
 
     <TextView
@@ -54,7 +56,12 @@
         android:layout_height="1dip"
         android:background="#000000" />
 
-    <LinearLayout
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/listView"></ListView>
+
+    <!--LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -109,19 +116,5 @@
             android:layout_weight="1" />
 
 
-    </LinearLayout>
-
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Details"
-        android:id="@+id/results_DetailsButton"
-        android:layout_gravity="right" />
-
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageButton"
-        android:layout_gravity="right" />
+    </LinearLayout-->
 </LinearLayout>

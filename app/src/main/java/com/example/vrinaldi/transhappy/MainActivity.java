@@ -17,12 +17,18 @@ import android.widget.TextView;
 
 import android.widget.Button;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Locale;
 
 import ch.schoeb.opendatatransport.IOpenTransportRepository;
 import ch.schoeb.opendatatransport.LocalOpenTransportRepository;
+import ch.schoeb.opendatatransport.OpenTransportRepositoryFactory;
+import ch.schoeb.opendatatransport.model.ConnectionList;
 
 public class MainActivity extends AppCompatActivity  {
 
@@ -38,24 +44,27 @@ public class MainActivity extends AppCompatActivity  {
     //Date
     private DatePicker dpResult;
     private Button btnChangeDate;
-    private int year;
-    private int month;
-    private int day;
+
+    private Date date;
+    SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
 
     //Time
     private TimePicker tpResult;
     private Button btnChangeTime;
-    private int hour;
-    private int minute;
+
+    private Date time;
+    SimpleDateFormat stf = new SimpleDateFormat("HH:mm");
 
     //Departure & Arrival
     private RadioGroup rGrDepArr;
     private RadioButton rBtnDeparture;
     private RadioButton rBtnArrival;
-    private boolean isDeparture = true;
+    private boolean isArrival;
 
     //Search
     private Button searchButton;
+
+
 
 
     @Override
@@ -84,8 +93,7 @@ public class MainActivity extends AppCompatActivity  {
         rBtnArrival.setOnClickListener(radioBtnListener);
 
         searchButton = (Button) findViewById(R.id.searchButton);
-       //22.1 auskommentiert von Gregor damits kompiliert
-       // searchButton.setOnClickListener(searchBtnListener);
+        searchButton.setOnClickListener(searchBtnListener);
     }
 
     private View.OnClickListener reverseBtnListener = new View.OnClickListener() {
@@ -99,12 +107,8 @@ public class MainActivity extends AppCompatActivity  {
 
     private void setCurrentDateOnView() {
         dpResult = (DatePicker) findViewById(R.id.dpResult);
-
-        year = calendar.get(Calendar.YEAR);
-        month = calendar.get(Calendar.MONTH);
-        day = calendar.get(Calendar.DAY_OF_MONTH);
-
-        dpResult.init(year, month, day, null);
+        date = new Date();
+        dpResult.init(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH), null);
     }
 
     @TargetApi(Build.VERSION_CODES.M)
@@ -112,30 +116,23 @@ public class MainActivity extends AppCompatActivity  {
         tpResult = (TimePicker) findViewById(R.id.tpResult);
         tpResult.setIs24HourView(true);
 
-        hour = calendar.get(Calendar.HOUR);
-        minute = calendar.get(Calendar.MINUTE);
-
-        tpResult.setHour(hour);
-        tpResult.setMinute(minute);
+        time = new Date();
+        tpResult.setHour(calendar.get(Calendar.HOUR));
+        tpResult.setMinute(calendar.get(Calendar.MINUTE));
     }
 
     private View.OnClickListener changeDateTimeListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             if (v == btnChangeDate) {
-                year = calendar.get(Calendar.YEAR);
-                month = calendar.get(Calendar.MONTH);
-                day = calendar.get(Calendar.DAY_OF_MONTH);
-
+                //TODO set Date
                 DatePickerDialog dpd = new DatePickerDialog(MainActivity.this,
-                        datePickerListener, year, month, day);
+                        datePickerListener, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH));
                 dpd.show();
             }
             if (v == btnChangeTime) {
-                hour = calendar.get(Calendar.HOUR_OF_DAY);
-                minute = calendar.get(Calendar.MINUTE);
-
-                TimePickerDialog tpd = new TimePickerDialog(MainActivity.this, timePickerListener, hour, minute, true);
+                //TODO: set time
+                TimePickerDialog tpd = new TimePickerDialog(MainActivity.this, timePickerListener, calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE), true);
 
                 tpd.show();
             }
@@ -144,13 +141,15 @@ public class MainActivity extends AppCompatActivity  {
 
     private DatePickerDialog.OnDateSetListener datePickerListener
             = new DatePickerDialog.OnDateSetListener() {
+
         public void onDateSet(DatePicker view, int selectedYear,
                               int selectedMonth, int selectedDay) {
-            year = selectedYear;
-            month = selectedMonth;
-            day = selectedDay;
-
-            dpResult.init(year, month, day, null);
+            try {
+                date = sdf.parse(selectedDay + "." + selectedMonth + "." + selectedYear);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            dpResult.init(selectedYear, selectedMonth, selectedDay, null);
         }
     };
 
@@ -160,12 +159,14 @@ public class MainActivity extends AppCompatActivity  {
         @TargetApi(Build.VERSION_CODES.M)
         @Override
         public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-            hour = hourOfDay;
-            MainActivity.this.minute = minute;
+            try {
+                time = stf.parse(hourOfDay + ":" + minute);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
 
             tpResult.setHour(hourOfDay);
             tpResult.setMinute(minute);
-
         }
     };
 
@@ -177,37 +178,44 @@ public class MainActivity extends AppCompatActivity  {
             switch(view.getId()) {
                 case R.id.rbtnDeparture:
                     if (checked)
-                        isDeparture = true;
+                        isArrival = false;
                     break;
                 case R.id.rbtnArrival:
                     if (checked)
-                        isDeparture = false;
+                        isArrival = true;
                     break;
             }
         }
     };
 
 
-    /*22.1 auskommentiert von Gregor da Klasse searchParams noch nicht exisitert
-
-
     private View.OnClickListener searchBtnListener = new View.OnClickListener() {
         @TargetApi(Build.VERSION_CODES.M)
         @Override
         public void onClick(View v) {
+            if(fromParam.getText().toString().isEmpty()) {
+                showErrorMessage("Bitte Abfahrtsort eingeben");
+                return;
+            }
+            if(toParam.getText().toString().isEmpty()) {
+                showErrorMessage("Bitte Zielort eingeben");
+                return;
+            }
+
             SearchParams searchParams = new SearchParams();
             searchParams.setFromParam(fromParam.getText().toString());
             searchParams.setToParam(toParam.getText().toString());
-            searchParams.setYear(dpResult.getYear());
-            searchParams.setMonth(dpResult.getMonth());
-            searchParams.setDay(dpResult.getDayOfMonth());
-            searchParams.setHour(tpResult.getHour());
-            searchParams.setMinute(tpResult.getMinute());
-            searchParams.setIsDeparture(isDeparture);
+            searchParams.setDate(date);
+            searchParams.setTime(time);
+            searchParams.setIsArrival(isArrival);
 
-        /**    Intent intent = new Intent(MainActivity.this, SearchResultsOverview.class);
+            Intent intent = new Intent(MainActivity.this, SearchResultsOverview.class);
             intent.putExtra("SearchParams", searchParams.toString());
             startActivity(intent);
         }
-    };*/
+    };
+
+    private void showErrorMessage(String errorMsg) {
+        Toast.makeText(getApplicationContext(), errorMsg, Toast.LENGTH_LONG).show();
+    }
 }

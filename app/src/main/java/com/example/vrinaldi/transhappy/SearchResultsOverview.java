@@ -1,6 +1,8 @@
 package com.example.vrinaldi.transhappy;
 
 import android.content.Intent;
+import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -45,7 +47,13 @@ public class SearchResultsOverview extends AppCompatActivity {
         }
 
         ConnectionWorker connectionWorker = new ConnectionWorker();
-        connectionWorker.execute(searchParams);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+            connectionWorker.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, searchParams);
+        } else {
+            connectionWorker.execute(searchParams);
+        }
+
         ConnectionList result = null;
 
         try {

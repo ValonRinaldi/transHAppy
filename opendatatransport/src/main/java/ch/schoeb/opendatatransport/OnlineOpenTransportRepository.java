@@ -1,5 +1,7 @@
 package ch.schoeb.opendatatransport;
 
+import android.util.Log;
+
 import com.google.gson.Gson;
 
 import org.apache.http.client.HttpClient;
@@ -56,7 +58,8 @@ public class OnlineOpenTransportRepository implements IOpenTransportRepository {
         String json = "";
         try {
             json = client.execute(request, handler);
-        } catch (IOException e) {
+        } catch (Exception e) {
+            Log.e("vr", e.toString() + e.getMessage());
         }
         return json;
     }

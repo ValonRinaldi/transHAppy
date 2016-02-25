@@ -5,17 +5,15 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.example.vrinaldi.transhappy.utils.ConnectionWorker;
 
 import java.text.ParseException;
 import java.util.concurrent.ExecutionException;
 
-import ch.schoeb.opendatatransport.IOpenTransportRepository;
-import ch.schoeb.opendatatransport.OpenTransportRepositoryFactory;
 import ch.schoeb.opendatatransport.model.ConnectionList;
 
 

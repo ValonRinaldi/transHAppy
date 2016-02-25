@@ -2,7 +2,6 @@ package com.example.vrinaldi.transhappy;
 
 import android.annotation.TargetApi;
 import android.app.DatePickerDialog;
-import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Build;
@@ -13,7 +12,6 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.TextView;
 
 import android.widget.Button;
 import android.widget.TimePicker;
@@ -24,11 +22,6 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
-
-import ch.schoeb.opendatatransport.IOpenTransportRepository;
-import ch.schoeb.opendatatransport.LocalOpenTransportRepository;
-import ch.schoeb.opendatatransport.OpenTransportRepositoryFactory;
-import ch.schoeb.opendatatransport.model.ConnectionList;
 
 public class MainActivity extends AppCompatActivity  {
 

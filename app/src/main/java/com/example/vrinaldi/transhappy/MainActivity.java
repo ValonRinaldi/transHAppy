@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity  {
     private Button btnChangeDate;
 
     private Date date;
-    SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
+    public SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
 
     //Time
     private TimePicker tpResult;
@@ -56,9 +56,6 @@ public class MainActivity extends AppCompatActivity  {
 
     //Search
     private Button searchButton;
-
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -196,14 +193,13 @@ public class MainActivity extends AppCompatActivity  {
             }
 
             SearchParams searchParams = new SearchParams();
-            searchParams.setFromParam(fromParam.getText().toString());
-            searchParams.setToParam(toParam.getText().toString());
-            searchParams.setDate(date);
-            searchParams.setTime(time);
-            searchParams.setIsArrival(isArrival);
+            searchParams.fromParam = fromParam.getText().toString();
+            searchParams.toParam = toParam.getText().toString();
+            searchParams.date = date;
+            searchParams.time = time;
+            searchParams.isArrival = isArrival;
 
             Intent intent = new Intent(MainActivity.this, SearchResultsOverview.class);
-            intent.putExtra("SearchParams", searchParams.toString());
             startActivity(intent);
         }
     };

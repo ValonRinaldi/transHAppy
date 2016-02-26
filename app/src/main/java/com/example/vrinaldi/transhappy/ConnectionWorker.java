@@ -16,32 +16,17 @@ public class ConnectionWorker extends AsyncTask<SearchParams, Integer, Connectio
 
     @Override
     protected ConnectionList doInBackground(SearchParams... params) {
-        SearchParams searchParam = params[0];
 
         conList = new ConnectionList();
         repo = OpenTransportRepositoryFactory.CreateOnlineOpenTransportRepository();
-
-        conList = repo.searchConnections(searchParam.getFromParam(), searchParam.getToParam());
-
+        conList = repo.searchConnections(SearchParams.fromParam, SearchParams.toParam);
+        conList = repo.searchConnections(
+                    SearchParams.fromParam,
+                    SearchParams.toParam,
+                    SearchParams.via,
+                    SearchParams.sdf.format(SearchParams.date),
+                    SearchParams.stf.format(SearchParams.time),
+                    SearchParams.isArrival);
         return conList;
     }
-
-    private Connection createConnection(String from, String to) {
-        Connection conn = new Connection();
-        conn.setFrom(getConnectionStation(from));
-        conn.setTo(getConnectionStation(to));
-        conn.setDuration("1:00");
-        conn.setTransfers(2);
-        return conn;
-    }
-
-    private ConnectionStation getConnectionStation(String name) {
-        ConnectionStation fromStation = new ConnectionStation();
-        Station station = new Station();
-        station.setName(name);
-        fromStation.setStation(station);
-        return fromStation;
-    }
-
-
 }

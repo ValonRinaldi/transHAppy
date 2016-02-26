@@ -1,6 +1,5 @@
 package com.example.vrinaldi.transhappy;
 
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -9,9 +8,6 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.example.vrinaldi.transhappy.utils.ConnectionWorker;
-
-import java.text.ParseException;
 import java.util.concurrent.ExecutionException;
 
 import ch.schoeb.opendatatransport.model.ConnectionList;
@@ -35,14 +31,6 @@ public class SearchResultsOverview extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_results_overview);
-
-        Intent intent = getIntent();
-        String data = intent.getStringExtra("SearchParams");
-        try {
-            searchParams = SearchParams.parse(data);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
 
         ConnectionWorker connectionWorker = new ConnectionWorker();
 

@@ -22,30 +22,30 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="From: "
         android:id="@+id/fromInput"
         android:textSize="20sp"
          />
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dip"/>
+
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="To: "
         android:id="@+id/toInput"
         android:textSize="20sp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Date: "
-        android:id="@+id/results_Date"
+        android:id="@+id/dateInput"
         android:textSize="20sp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Time: "
-        android:id="@+id/results_Time"
+        android:id="@+id/timeInput"
         android:textSize="20sp" />
 
     <View
@@ -53,12 +53,9 @@
         android:layout_height="1dip"
         android:background="#000000" />
 
-    <ListView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/listView"></ListView>
 
-    <!--LinearLayout
+
+    <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -70,7 +67,7 @@
             android:text="Dep."
             android:id="@+id/results_Dep"
             android:textSize="20sp"
-            android:layout_weight="1" />
+             />
 
         <TextView
             android:layout_width="wrap_content"
@@ -78,7 +75,7 @@
             android:text="Arr."
             android:id="@+id/results_Arr"
             android:textSize="20sp"
-            android:layout_weight="1" />
+            android:paddingLeft="15dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -86,7 +83,7 @@
             android:text="Dur."
             android:id="@+id/results_Dur"
             android:textSize="20sp"
-            android:layout_weight="1" />
+            android:paddingLeft="15dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -94,7 +91,7 @@
             android:text="Chg."
             android:id="@+id/results_Chg"
             android:textSize="20sp"
-            android:layout_weight="1"/>
+            android:paddingLeft="15dp"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -102,16 +99,22 @@
             android:text="Plat."
             android:id="@+id/results_Plat"
             android:textSize="20sp"
-            android:layout_weight="1" />
+            android:paddingLeft="15dp" />
 
-        <TextView
+        <!--TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Details"
             android:id="@+id/results_Details"
             android:textSize="20sp"
-            android:layout_weight="1" />
+            android:layout_weight="1" /-->
+    </LinearLayout>
 
 
-    </LinearLayout-->
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:id="@+id/listView"></ListView>
+
 </LinearLayout>

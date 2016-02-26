@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.vrinaldi.transhappy.utils.ConnectionWorker;
 
 import java.text.ParseException;
 import java.util.concurrent.ExecutionException;
@@ -24,19 +25,31 @@ public class SearchResultsOverview extends AppCompatActivity {
     //Declare View variable
     private TextView mArr;
     private TextView mFrom;
+    private Button mResults_DetailButton;
+
+
+   private SearchParams searchParams = new SearchParams();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_results_overview);
 
+        Intent intent = getIntent();
+        String data = intent.getStringExtra("SearchParams");
+        try {
+            searchParams = SearchParams.parse(data);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
 
         ConnectionWorker connectionWorker = new ConnectionWorker();
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-            connectionWorker.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+            connectionWorker.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, searchParams);
         } else {
-            connectionWorker.execute();
+            connectionWorker.execute(searchParams);
         }
 
         ConnectionList result = null;
@@ -57,7 +70,7 @@ public class SearchResultsOverview extends AppCompatActivity {
         /** //Assign view from the layoutfile to the corresponding variables
         TextView mFrom = (TextView) findViewById(R.id.results_From);
         TextView mArr = (TextView) findViewById(R.id.results_Arr);
-        Button mResults_DetailButton = (Button) findViewById(R.id.results_DetailsButton);*/
+        Button mResults_DetailButton = (Button) findViewById(R.id.results_DetailsButton); */
 
     };
 };

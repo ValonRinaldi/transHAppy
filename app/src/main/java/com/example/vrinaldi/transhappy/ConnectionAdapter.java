@@ -50,24 +50,24 @@ public class ConnectionAdapter extends BaseAdapter {
 
             Connection connection = (Connection) getItem(position);
             TextView from = (TextView) convertView.findViewById(R.id.results_Dep);
-            //from.setText(connection.getFrom().getDepartureTimestamp().toString());
-            from.setText("From");
+            from.setText(connection.getFrom().getDeparture().substring(11,16));
+           //from.setText("From");
 
             TextView to = (TextView) convertView.findViewById(R.id.results_Arr);
-            //to.setText(connection.getTo().getArrivalTimestamp().toString());
-            to.setText("To");
+            to.setText(connection.getTo().getArrival().substring(11,16));
+            //to.setText("To");
 
             TextView duration = (TextView) convertView.findViewById(R.id.results_Dur);
-            duration.setText(connection.getDuration());
+            duration.setText(connection.getDuration().substring(4,8));
             //duration.setText("dur");
 
             TextView changes = (TextView) convertView.findViewById(R.id.results_Chg);
-            //changes.setText(connection.getTransfers().toString());
-            changes.setText("ch");
+            changes.setText(connection.getTransfers().toString());
+            //changes.setText("ch");
 
             TextView plattform = (TextView) convertView.findViewById(R.id.results_Plat);
-            //plattform.setText(connection.getFrom().getPlatform());
-            plattform.setText("Pla");
+            plattform.setText(connection.getFrom().getPlatform());
+            //plattform.setText("Pla");
 
             return convertView;
         }

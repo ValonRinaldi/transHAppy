@@ -12,108 +12,129 @@
     <TableLayout
         android:id="@+id/fromToTbl"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        >
         <!-- FROM -->
         <TableRow
             android:id="@+id/fromRow">
             <TextView
                 android:id="@+id/requestFrom"
-                android:text="@id/requestFrom"
-                android:textSize="18dp" />
+                android:text="@id/from"
+                android:textSize="18dp"
+                />
             <EditText
                 android:id="@+id/searchFromText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="18dp"/>
+                android:textSize="18dp"
+                />
         </TableRow>
         <!-- TO -->
         <TableRow
             android:id="@+id/toRow"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            >
             <TextView
-                android:id="@id/requestTo"
+                android:id="@id/to"
+                android:text="@id/to"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@id/requestTo"
-                android:textSize="18dp" />
+                android:textSize="18dp"
+                />
             <EditText
                 android:id="@+id/searchToText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="18dp"/>
+                android:textSize="18dp"
+                />
         </TableRow>
+        <!-- Reverse Radio Button -->
         <TableRow
             android:id="@+id/reverseRow"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            >
             <Button
                 android:id="@+id/btnReverse"
+                android:text="@id/reverseButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@id/reverseButton"/>
+                />
             <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/rGrDepArr"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:id="@+id/rGrDepArr">
+                >
                 <RadioButton android:id="@+id/rbtnDeparture"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:text="@id/departure"
-                    android:onClick="onRadioButtonClicked"/>
-                <RadioButton android:id="@+id/rbtnArrival"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:onClick="onRadioButtonClicked"
+                    />
+                <RadioButton
+                    android:id="@+id/rbtnArrival"
                     android:text="@id/arrival"
-                    android:onClick="onRadioButtonClicked"/>
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="onRadioButtonClicked"
+                    />
             </RadioGroup>
         </TableRow>
     </TableLayout>
     <TableLayout
         android:id="@+id/dateTimeTbl"
+        android:layout_below="@id/fromToTbl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/fromToTbl">
+        >
         <!-- Date -->
         <TableRow android:id="@+id/dateRow"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            >
             <Button
                 android:id="@+id/btnChangeDate"
+                android:text="@id/changeDateButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@id/changeDateButton" />
+                 />
         </TableRow>
         <TableRow>
             <DatePicker
                 android:id="@+id/dpResult"
                 android:layout_width="wrap_content"
-                android:layout_height="300px" />
+                android:layout_height="95dp"
+                />
         </TableRow>
         <!-- TIME -->
         <TableRow android:id="@+id/timeRow"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            >
             <Button
                 android:id="@+id/btnChangeTime"
+                android:text="@id/changeTimeButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@id/changeTimeButton" />
+                 />
         </TableRow>
         <TableRow>
             <TimePicker
                 android:id="@+id/tpResult"
                 android:layout_width="wrap_content"
-                android:layout_height="80dp" />
+                android:layout_height="80dp"
+                />
         </TableRow>
     </TableLayout>
     <!-- Search Button -->
     <Button
         android:id="@+id/searchButton"
+        android:text="@id/search"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/dateTimeTbl"
         android:layout_span="2"
-        android:text="@id/search" />
+        />
 </RelativeLayout>

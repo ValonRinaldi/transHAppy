@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp">
+    <!-- Header -->
+    <TableLayout
+        android:id="@+id/headerTbl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        >
+        <!-- Header Title -->
+        <TableRow
+            android:id="@+id/headerRow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+            <TextView
+                android:id="@+id/result_Title"
+                android:text="@id/resultOverviewTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:textSize="25dp"
+                />
+        </TableRow>
+        <!-- Header From -->
+        <TableRow
+            android:id="@+id/fromHeaderRow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            >
+            <TextView
+                android:id="@+id/fromLbl"
+                android:text="@id/from"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+            <TextView
+                android:id="@+id/fromValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+        </TableRow>
+        <!-- Header To -->
+        <TableRow
+            android:id="@+id/toHeaderRow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            >
+            <TextView
+                android:id="@+id/toLbl"
+                android:text="@id/to"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+            <TextView
+                android:id="@+id/toValue"
+                android:layout_width="wrap_content"
+                />
+        </TableRow>
+        <!-- Header Date -->
+        <TableRow
+            android:id="@+id/dateHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            >
+            <TextView
+                android:id="@+id/dateLbl"
+                android:text="@id/date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+            <TextView
+                android:id="@+id/dateValue"
+                android:layout_width="wrap_content"
+                />
+        </TableRow>
+        <!-- Header Time -->
+        <TableRow
+            android:id="@+id/timeHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            >
+            <TextView
+                android:id="@+id/timeLbl"
+                android:text="@id/tavelTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+            <TextView
+                android:id="@+id/timeValue"
+                android:layout_width="wrap_content"
+                />
+        </TableRow>
+    </TableLayout>
+    <!-- Result -->
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/listView"
+        >
+    </ListView>
+</LinearLayout>

@@ -1,4 +1,4 @@
-package com.example.vrinaldi.transhappy;
+package com.example.vrinaldi.transhappy.utils;
 
 import android.os.AsyncTask;
 
@@ -19,10 +19,10 @@ public class ConnectionWorker extends AsyncTask<SearchParams, Integer, Connectio
 
         conList = new ConnectionList();
         repo = OpenTransportRepositoryFactory.CreateOnlineOpenTransportRepository();
-        conList = repo.searchConnections(SearchParams.fromParam, SearchParams.toParam);
+        conList = repo.searchConnections(SearchParams.from, SearchParams.to);
         conList = repo.searchConnections(
-                    SearchParams.fromParam,
-                    SearchParams.toParam,
+                    SearchParams.from,
+                    SearchParams.to,
                     SearchParams.via,
                     SearchParams.sdf.format(SearchParams.date),
                     SearchParams.stf.format(SearchParams.time),

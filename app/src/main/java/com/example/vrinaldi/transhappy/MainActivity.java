@@ -17,6 +17,8 @@ import android.widget.Button;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.example.vrinaldi.transhappy.utils.SearchParams;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -28,8 +30,8 @@ public class MainActivity extends AppCompatActivity  {
     private static final Calendar calendar = Calendar.getInstance(Locale.GERMAN);
 
     //Destination
-    private EditText fromParam;
-    private EditText toParam;
+    private EditText from;
+    private EditText to;
 
     //Reverse
     private Button btnReverse;
@@ -55,25 +57,29 @@ public class MainActivity extends AppCompatActivity  {
     private boolean isArrival;
 
     //Search
-    private Button searchButton;
+    private Button btnSearch;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        fromParam = (EditText) findViewById(R.id.searchFromText);
-        toParam = (EditText) findViewById(R.id.searchToText);
+        from = (EditText) findViewById(R.id.searchFromText);
+        to = (EditText) findViewById(R.id.searchToText);
 
         btnReverse = (Button) findViewById(R.id.btnReverse);
         btnReverse.setOnClickListener(reverseBtnListener);
 
         setCurrentDateOnView();
+        btnChangeDate = (Button) findViewById(R.id.btnChangeDate);
+        btnChangeDate.setOnClickListener(changeDateTimeListener);
+
         setCurrentTimeOnView();
         btnChangeTime = (Button) findViewById(R.id.btnChangeTime);
         btnChangeTime.setOnClickListener(changeDateTimeListener);
-        btnChangeDate = (Button) findViewById(R.id.btnChangeDate);
-        btnChangeDate.setOnClickListener(changeDateTimeListener);
 
         rGrDepArr = (RadioGroup) findViewById(R.id.rGrDepArr);
         rGrDepArr.check(R.id.rbtnDeparture);
@@ -82,16 +88,16 @@ public class MainActivity extends AppCompatActivity  {
         rBtnArrival = (RadioButton) findViewById(R.id.rbtnArrival);
         rBtnArrival.setOnClickListener(radioBtnListener);
 
-        searchButton = (Button) findViewById(R.id.searchButton);
-        searchButton.setOnClickListener(searchBtnListener);
+        btnSearch = (Button) findViewById(R.id.searchButton);
+        btnSearch.setOnClickListener(searchBtnListener);
     }
 
     private View.OnClickListener reverseBtnListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            String tmpFrom = fromParam.getText().toString();
-            fromParam.setText(toParam.getText().toString());
-            toParam.setText(tmpFrom);
+            String tmpFrom = from.getText().toString();
+            from.setText(to.getText().toString());
+            to.setText(tmpFrom);
         }
     };
 
@@ -183,18 +189,18 @@ public class MainActivity extends AppCompatActivity  {
         @TargetApi(Build.VERSION_CODES.M)
         @Override
         public void onClick(View v) {
-            if(fromParam.getText().toString().isEmpty()) {
+            if(from.getText().toString().isEmpty()) {
                 showErrorMessage("Bitte Abfahrtsort eingeben");
                 return;
             }
-            if(toParam.getText().toString().isEmpty()) {
+            if(to.getText().toString().isEmpty()) {
                 showErrorMessage("Bitte Zielort eingeben");
                 return;
             }
 
             SearchParams searchParams = new SearchParams();
-            searchParams.fromParam = fromParam.getText().toString();
-            searchParams.toParam = toParam.getText().toString();
+            searchParams.from = from.getText().toString();
+            searchParams.to = to.getText().toString();
             searchParams.date = date;
             searchParams.time = time;
             searchParams.isArrival = isArrival;

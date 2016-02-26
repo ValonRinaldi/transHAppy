@@ -1,21 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- MainActivity -->
-    <item name="requestFrom" type="id">Von:</item>
-    <item name="requestTo" type="id">Nach:</item>
+    <item name="from" type="id">Von:</item>
+    <item name="to" type="id">Nach:</item>
     <item name="reverseButton" type="id">Umkehren</item>
-    <item name="time" type="id">Zeit</item>
     <item name="search" type="id">Verbindung suchen</item>
     <item name="changeDateButton" type="id">Datum auswählen</item>
     <item name="changeTimeButton" type="id">Zeit auswählen</item>
-    <item name="departure" type="id">Abfahrt</item>
     <item name="arrival" type="id">Ankunft</item>
+    <item name="departure" type="id">Abfahrt</item>
+
 
     <!-- SearchResultsOverview -->
+    <item name="resultOverviewTitle" type="id">Verbindungen</item>
+    <!-- Header -->
+    <item name="date" type="id">Datum</item>
+    <item name="tavelTime" type="id">Zeit</item>
+    <!-- Result Header -->
     <item name="off" type="id">Ab</item>
     <item name="on" type="id">An</item>
     <item name="duration" type="id">Dauer</item>
+    <item name="changes" type="id">Umst.</item>
     <item name="trail" type="id">Gleis</item>
-    <item name="sarchButton" type="id" />
 
 </resources>

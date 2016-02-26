@@ -1,4 +1,4 @@
-package com.example.vrinaldi.transhappy;
+package com.example.vrinaldi.transhappy.utils;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -6,6 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+
+import com.example.vrinaldi.transhappy.R;
 
 import java.util.List;
 
@@ -45,29 +47,26 @@ public class ConnectionAdapter extends BaseAdapter {
 
             if (convertView == null) {
                 LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                convertView = inflater.inflate(R.layout.listitem, parent, false);
+                convertView = inflater.inflate(R.layout.search_results_overview_listitems, parent, false);
             }
 
             Connection connection = (Connection) getItem(position);
-            TextView from = (TextView) convertView.findViewById(R.id.results_Dep);
-            from.setText(connection.getFrom().getDeparture().substring(11,16));
-           //from.setText("From");
 
-            TextView to = (TextView) convertView.findViewById(R.id.results_Arr);
+
+            TextView from = (TextView) convertView.findViewById(R.id.resDep);
+            from.setText(connection.getFrom().getDeparture().substring(11, 16));
+
+            TextView to = (TextView) convertView.findViewById(R.id.resArr);
             to.setText(connection.getTo().getArrival().substring(11,16));
-            //to.setText("To");
 
-            TextView duration = (TextView) convertView.findViewById(R.id.results_Dur);
+            TextView duration = (TextView) convertView.findViewById(R.id.resDur);
             duration.setText(connection.getDuration().substring(4,8));
-            //duration.setText("dur");
 
-            TextView changes = (TextView) convertView.findViewById(R.id.results_Chg);
+            TextView changes = (TextView) convertView.findViewById(R.id.resChg);
             changes.setText(connection.getTransfers().toString());
-            //changes.setText("ch");
 
-            TextView plattform = (TextView) convertView.findViewById(R.id.results_Plat);
+            TextView plattform = (TextView) convertView.findViewById(R.id.resPlat);
             plattform.setText(connection.getFrom().getPlatform());
-            //plattform.setText("Pla");
 
             return convertView;
         }

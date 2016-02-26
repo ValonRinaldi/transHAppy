@@ -4,9 +4,12 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.example.vrinaldi.transhappy.utils.ConnectionAdapter;
+import com.example.vrinaldi.transhappy.utils.ConnectionWorker;
+import com.example.vrinaldi.transhappy.utils.SearchParams;
 
 import java.util.concurrent.ExecutionException;
 
@@ -18,29 +21,43 @@ import ch.schoeb.opendatatransport.model.ConnectionList;
  */
 public class SearchResultsOverview extends AppCompatActivity {
 
-    //Declare View variable
-    private TextView mArr;
-    private TextView mFrom;
-    private Button mResults_DetailButton;
-
-
-   private SearchParams searchParams = new SearchParams();
+    private TextView fromValue;
+    private TextView toValue;
+    private TextView dateValue;
+    private TextView timeValue;
+    private ListView listView;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_search_results_overview);
+        setContentView(R.layout.search_results_overview);
 
+        fromValue = (TextView) findViewById(R.id.fromValue);
+        fromValue.setText(SearchParams.from);
+
+        toValue = (TextView) findViewById(R.id.toValue);
+        toValue.setText(SearchParams.to);
+
+        dateValue = (TextView) findViewById(R.id.dateValue);
+        dateValue.setText(SearchParams.sdf.format(SearchParams.date));
+
+        timeValue = (TextView) findViewById(R.id.timeValue);
+        timeValue.setText(SearchParams.stf.format(SearchParams.time));
+
+        listView = (ListView) findViewById(R.id.listView);
+        listView.setAdapter(new ConnectionAdapter(this, createResult().getConnections()));
+    };
+
+    private ConnectionList createResult() {
         ConnectionWorker connectionWorker = new ConnectionWorker();
+        ConnectionList result = new ConnectionList();
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-            connectionWorker.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, searchParams);
+            connectionWorker.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
         } else {
-            connectionWorker.execute(searchParams);
+            connectionWorker.execute();
         }
-
-        ConnectionList result = null;
 
         try {
             result = connectionWorker.get();
@@ -49,17 +66,7 @@ public class SearchResultsOverview extends AppCompatActivity {
         } catch (ExecutionException e) {
             e.printStackTrace();
         }
-
-        ConnectionAdapter connectionAdapter = new ConnectionAdapter(this, result.getConnections());
-        ListView listView = (ListView) findViewById(R.id.listView);
-        listView.setAdapter(connectionAdapter);
-
-
-        /** //Assign view from the layoutfile to the corresponding variables
-        TextView mFrom = (TextView) findViewById(R.id.results_From);
-        TextView mArr = (TextView) findViewById(R.id.results_Arr);
-        Button mResults_DetailButton = (Button) findViewById(R.id.results_DetailsButton); */
-
-    };
+        return result;
+    }
 };
 

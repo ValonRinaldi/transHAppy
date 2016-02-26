@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.example.vrinaldi.transhappy.utils.ConnectionWorker;
+import com.example.vrinaldi.transhappy.ConnectionWorker;
 
 import java.text.ParseException;
 import java.util.concurrent.ExecutionException;
@@ -23,9 +23,12 @@ import ch.schoeb.opendatatransport.model.ConnectionList;
 public class SearchResultsOverview extends AppCompatActivity {
 
     //Declare View variable
-    private TextView mArr;
-    private TextView mFrom;
-    private Button mResults_DetailButton;
+    private TextView mFromInput;
+    private TextView mToInput;
+    private TextView mDateInput;
+    private TextView mTimeInput;
+
+
 
 
    private SearchParams searchParams = new SearchParams();
@@ -67,10 +70,18 @@ public class SearchResultsOverview extends AppCompatActivity {
         listView.setAdapter(connectionAdapter);
 
 
-        /** //Assign view from the layoutfile to the corresponding variables
-        TextView mFrom = (TextView) findViewById(R.id.results_From);
-        TextView mArr = (TextView) findViewById(R.id.results_Arr);
-        Button mResults_DetailButton = (Button) findViewById(R.id.results_DetailsButton); */
+        //Assign view from the layoutfile to the corresponding variables
+        TextView  mFromInput = (TextView) findViewById(R.id.fromInput);
+        mFromInput.setText("From:  " +"Basel");
+
+        TextView  mToInput = (TextView) findViewById(R.id.toInput);
+        mFromInput.setText("To:  " + "Hello");
+
+        TextView  mDateInput = (TextView) findViewById(R.id.dateInput);
+        mFromInput.setText("Date:  " + "Hello");
+
+        TextView  mTimeInput = (TextView) findViewById(R.id.timeInput);
+        mFromInput.setText("Time:  " + "Hello");
 
     };
 };

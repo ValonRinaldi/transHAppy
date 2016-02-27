@@ -198,12 +198,11 @@ public class MainActivity extends AppCompatActivity  {
                 return;
             }
 
-            SearchParams searchParams = new SearchParams();
-            searchParams.from = from.getText().toString();
-            searchParams.to = to.getText().toString();
-            searchParams.date = date;
-            searchParams.time = time;
-            searchParams.isArrival = isArrival;
+            SearchParams.from = from.getText().toString();
+            SearchParams.to = to.getText().toString();
+            SearchParams.date = date;
+            SearchParams.time = time;
+            SearchParams.isArrival = isArrival;
 
             Intent intent = new Intent(MainActivity.this, SearchResultsOverview.class);
             startActivity(intent);

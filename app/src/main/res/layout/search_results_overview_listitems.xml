@@ -1,46 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     >
-        <!-- Result Value-->
-        <TableLayout
-            android:id="@+id/valueTble"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            >
-            <TableRow>
-                <TextView
-                    android:id="@+id/resDep"
-                    android:layout_width="60dp"
-                    android:layout_margin="1dp"
-                    android:background="@android:color/white"
-                    />
-                <TextView
-                    android:id="@+id/resArr"
-                    android:layout_width="60dp"
-                    android:layout_margin="1dp"
-                    android:background="@android:color/white"
-                    />
-                <TextView
-                    android:id="@+id/resDur"
-                    android:layout_width="60dp"
-                    android:layout_margin="1dp"
-                    android:background="@android:color/white"
-                    />
-                <TextView
-                    android:id="@+id/resChg"
-                    android:layout_width="60dp"
-                    android:layout_margin="1dp"
-                    android:background="@android:color/white"
-                    />
-                <TextView
-                    android:id="@+id/resPlat"
-                    android:layout_width="60dp"
-                    android:layout_margin="1dp"
-                    android:background="@android:color/white"
-                    />
-            </TableRow>
-        </TableLayout>
+    <!-- Result Value-->
+    <TableLayout
+        android:id="@+id/valueTble"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        >
+        <TableRow>
+            <TextView
+                android:id="@+id/resDep"
+                android:layout_width="70dp"
+                android:layout_margin="1dp"
+                android:textSize="12dp"
+                android:background="@android:color/white"
+                />
+            <TextView
+                android:id="@+id/resArr"
+                android:layout_width="70dp"
+                android:layout_margin="1dp"
+                android:textSize="12dp"
+                android:background="@android:color/white"
+                />
+            <TextView
+                android:id="@+id/resDur"
+                android:layout_width="70dp"
+                android:layout_margin="1dp"
+                android:textSize="12dp"
+                android:background="@android:color/white"
+                />
+            <TextView
+                android:id="@+id/resChg"
+                android:layout_width="70dp"
+                android:layout_margin="1dp"
+                android:textSize="12dp"
+                android:background="@android:color/white"
+                />
+            <TextView
+                android:id="@+id/resPlat"
+                android:layout_width="70dp"
+                android:layout_margin="1dp"
+                android:textSize="12dp"
+                android:background="@android:color/white"
+                />
+        </TableRow>
+    </TableLayout>
 </LinearLayout>

@@ -7,9 +7,6 @@ import android.content.Intent;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -93,32 +90,6 @@ public class MainActivity extends AppCompatActivity  {
 
         btnSearch = (Button) findViewById(R.id.searchButton);
         btnSearch.setOnClickListener(searchBtnListener);
-    }
-
-//Create app bar menu
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_mainactivity, menu);
-        return true;
-    }
-//Defines how app bar menu acts
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.about:
-                // User chose the "about" item, show the about screen
-                Toast msg = Toast.makeText(MainActivity.this, "Menu 1", Toast.LENGTH_LONG);
-                msg.show();
-                return true;
-
-
-            default:
-                // If we got here, the user's action was not recognized.
-                // Invoke the superclass to handle it.
-                return super.onOptionsItemSelected(item);
-
-        }
     }
 
     private View.OnClickListener reverseBtnListener = new View.OnClickListener() {

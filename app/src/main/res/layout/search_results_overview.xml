@@ -9,12 +9,14 @@
         android:id="@+id/headerTbl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:paddingTop="10dp"
         >
         <!-- Header Title -->
         <TableRow
             android:id="@+id/headerRow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:paddingBottom="5dp"
             >
             <TextView
                 android:layout_width="wrap_content"
@@ -23,11 +25,12 @@
             <TextView
                 android:id="@+id/result_Title"
                 android:text="@id/resultOverviewTitle"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:textSize="15dp"
+                android:textSize="20dp"
                 android:paddingLeft="4dp"
+                android:textColor="@android:color/black"
                 />
         </TableRow>
         <!-- Header From -->
@@ -41,13 +44,13 @@
                 android:text="@id/from"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="15dp"
+                android:textSize="14dp"
                 />
             <TextView
                 android:id="@+id/fromValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="15dp"
+                android:textSize="14dp"
                 android:paddingLeft="4dp"
                 />
         </TableRow>
@@ -62,12 +65,12 @@
                 android:text="@id/to"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="15dp"
+                android:textSize="14dp"
                 />
             <TextView
                 android:id="@+id/toValue"
                 android:layout_width="wrap_content"
-                android:textSize="15dp"
+                android:textSize="14dp"
                 android:paddingLeft="4dp"
                 />
         </TableRow>
@@ -82,12 +85,12 @@
                 android:text="@id/date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="15dp"
+                android:textSize="14dp"
                 />
             <TextView
                 android:id="@+id/dateValue"
                 android:layout_width="wrap_content"
-                android:textSize="15dp"
+                android:textSize="14dp"
                 android:paddingLeft="4dp"
                 />
         </TableRow>
@@ -102,12 +105,12 @@
                 android:text="@id/tavelTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="15dp"
+                android:textSize="14dp"
                 />
             <TextView
                 android:id="@+id/timeValue"
                 android:layout_width="wrap_content"
-                android:textSize="15dp"
+                android:textSize="14dp"
                 android:paddingLeft="4dp"
                 />
         </TableRow>
@@ -117,55 +120,84 @@
         android:id="@+id/resultTable"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:paddingTop="5dp"
+        android:layout_marginLeft="5dp"
         >
         <!-- Header Lable -->
         <TableRow>
             <TextView
                 android:id="@+id/results_DepLbl"
                 android:text="@id/off"
-                android:layout_width="60dp"
+                android:layout_width="70dp"
                 android:layout_margin="1dp"
                 android:textColor="@android:color/white"
                 android:background="@android:color/black"
+                android:textSize="12dp"
                 />
             <TextView
                 android:id="@+id/results_ArrLbl"
                 android:text="@id/on"
-                android:layout_width="60dp"
+                android:layout_width="70dp"
                 android:layout_margin="1dp"
                 android:textColor="@android:color/white"
                 android:background="@android:color/black"
-                />
+                android:textSize="12dp"
+            />
             <TextView
                 android:id="@+id/results_DurLbl"
                 android:text="@id/duration"
-                android:layout_width="60dp"
+                android:layout_width="70dp"
                 android:layout_margin="1dp"
                 android:textColor="@android:color/white"
                 android:background="@android:color/black"
-                />
+                android:textSize="12dp"
+            />
             <TextView
                 android:id="@+id/results_ChgLbl"
                 android:text="@id/changes"
-                android:layout_width="60dp"
+                android:layout_width="70dp"
                 android:layout_margin="1dp"
                 android:textColor="@android:color/white"
                 android:background="@android:color/black"
+                android:textSize="12dp"
                 />
             <TextView
                 android:id="@+id/results_PlatLbl"
                 android:text="@id/trail"
-                android:layout_width="60dp"
+                android:layout_width="70dp"
                 android:layout_margin="1dp"
                 android:textColor="@android:color/white"
                 android:background="@android:color/black"
+                android:textSize="12dp"
                 />
         </TableRow>
     </TableLayout>
+
     <ListView
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:id="@+id/listView"
         >
     </ListView>
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        >
+        <TableRow
+            android:orientation="horizontal"
+            >
+            <Button
+                android:id="@+id/btnEarlier"
+                android:text="@id/earlier"
+                android:layout_width="170dp"
+                />
+            <Button
+                android:id="@+id/btnLater"
+                android:text="@id/later"
+                android:layout_width="170dp"
+                />
+        </TableRow>
+
+    </TableLayout>
 </LinearLayout>

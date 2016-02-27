@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- MainActivity -->
+    <item name="from" type="id">De: </item>
+    <item name="to" type="id">Par: </item>
+    <item name="reverseButton" type="id">Tour</item>
+    <item name="search" type="id">Trouver la Connexion</item>
+    <item name="changeDateButton" type="id">Sélectionner une date</item>
+    <item name="changeTimeButton" type="id">Sélectionnez le temps</item>
+    <item name="arrival" type="id">Arrivée</item>
+    <item name="departure" type="id">Sortie</item>
+
+
+    <!-- SearchResultsOverview -->
+    <item name="resultOverviewTitle" type="id">Connexion</item>
+    <!-- Header -->
+    <item name="date" type="id">Date: </item>
+    <item name="tavelTime" type="id">Temps: </item>
+    <!-- Result Header -->
+    <item name="off" type="id">De</item>
+    <item name="on" type="id">Par</item>
+    <item name="duration" type="id">Durée</item>
+    <item name="changes" type="id">Trans.</item>
+    <item name="trail" type="id">Piste</item>
+
+    <!-- Butten Earlier/Later -->
+    <item name="earlier" type="id">Plus tôt</item>
+    <item name="later" type="id">Plus tard</item>
+</resources>

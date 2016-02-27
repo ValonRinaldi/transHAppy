@@ -21,6 +21,12 @@ public class ConnectionAdapter extends BaseAdapter {
     private Context context;
     private List<Connection> connections;
 
+    private TextView from;
+    private TextView to;
+    private TextView duration;
+    private TextView changes;
+    private TextView plattform;
+
     public ConnectionAdapter(Context context, List<Connection> connections) {
         this.context = context;
         this.connections = connections;
@@ -53,19 +59,19 @@ public class ConnectionAdapter extends BaseAdapter {
             Connection connection = (Connection) getItem(position);
 
 
-            TextView from = (TextView) convertView.findViewById(R.id.resDep);
+            from = (TextView) convertView.findViewById(R.id.resDep);
             from.setText(connection.getFrom().getDeparture().substring(11, 16));
 
-            TextView to = (TextView) convertView.findViewById(R.id.resArr);
+            to = (TextView) convertView.findViewById(R.id.resArr);
             to.setText(connection.getTo().getArrival().substring(11,16));
 
-            TextView duration = (TextView) convertView.findViewById(R.id.resDur);
+            duration = (TextView) convertView.findViewById(R.id.resDur);
             duration.setText(connection.getDuration().substring(4,8));
 
-            TextView changes = (TextView) convertView.findViewById(R.id.resChg);
+            changes = (TextView) convertView.findViewById(R.id.resChg);
             changes.setText(connection.getTransfers().toString());
 
-            TextView plattform = (TextView) convertView.findViewById(R.id.resPlat);
+            plattform = (TextView) convertView.findViewById(R.id.resPlat);
             plattform.setText(connection.getFrom().getPlatform());
 
             return convertView;

@@ -23,4 +23,7 @@
     <item name="changes" type="id">Umst.</item>
     <item name="trail" type="id">Gleis</item>
 
+    <!-- Butten Earlier/Later -->
+    <item name="earlier" type="id">Früher</item>
+    <item name="later" type="id">Später</item>
 </resources>

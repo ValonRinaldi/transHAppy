@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- MainActivity -->
+    <item name="from" type="id">From: </item>
+    <item name="to" type="id">To: </item>
+    <item name="reverseButton" type="id">Reverse</item>
+    <item name="search" type="id">Search Connection</item>
+    <item name="changeDateButton" type="id">Select Date</item>
+    <item name="changeTimeButton" type="id">Select Time</item>
+    <item name="arrival" type="id">Arrival</item>
+    <item name="departure" type="id">Departure</item>
+
+
+    <!-- SearchResultsOverview -->
+    <item name="resultOverviewTitle" type="id">Connection</item>
+    <!-- Header -->
+    <item name="date" type="id">Date: </item>
+    <item name="tavelTime" type="id">Time: </item>
+    <!-- Result Header -->
+    <item name="off" type="id">Off</item>
+    <item name="on" type="id">On</item>
+    <item name="duration" type="id">Duration</item>
+    <item name="changes" type="id">Chg.</item>
+    <item name="trail" type="id">Tail</item>
+
+    <!-- Butten Earlier/Later -->
+    <item name="earlier" type="id">Earlier</item>
+    <item name="later" type="id">Later</item>
+</resources>

@@ -26,7 +26,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:textSize="25dp"
+                android:textSize="15dp"
+                android:paddingLeft="4dp"
                 />
         </TableRow>
         <!-- Header From -->
@@ -40,11 +41,14 @@
                 android:text="@id/from"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="15dp"
                 />
             <TextView
                 android:id="@+id/fromValue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="15dp"
+                android:paddingLeft="4dp"
                 />
         </TableRow>
         <!-- Header To -->
@@ -58,10 +62,13 @@
                 android:text="@id/to"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="15dp"
                 />
             <TextView
                 android:id="@+id/toValue"
                 android:layout_width="wrap_content"
+                android:textSize="15dp"
+                android:paddingLeft="4dp"
                 />
         </TableRow>
         <!-- Header Date -->
@@ -75,10 +82,13 @@
                 android:text="@id/date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="15dp"
                 />
             <TextView
                 android:id="@+id/dateValue"
                 android:layout_width="wrap_content"
+                android:textSize="15dp"
+                android:paddingLeft="4dp"
                 />
         </TableRow>
         <!-- Header Time -->
@@ -92,14 +102,66 @@
                 android:text="@id/tavelTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="15dp"
                 />
             <TextView
                 android:id="@+id/timeValue"
                 android:layout_width="wrap_content"
+                android:textSize="15dp"
+                android:paddingLeft="4dp"
                 />
         </TableRow>
     </TableLayout>
     <!-- Result -->
+    <TableLayout
+        android:id="@+id/resultTable"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        >
+        <!-- Header Lable -->
+        <TableRow>
+            <TextView
+                android:id="@+id/results_DepLbl"
+                android:text="@id/off"
+                android:layout_width="60dp"
+                android:layout_margin="1dp"
+                android:textColor="@android:color/white"
+                android:background="@android:color/black"
+                />
+            <TextView
+                android:id="@+id/results_ArrLbl"
+                android:text="@id/on"
+                android:layout_width="60dp"
+                android:layout_margin="1dp"
+                android:textColor="@android:color/white"
+                android:background="@android:color/black"
+                />
+            <TextView
+                android:id="@+id/results_DurLbl"
+                android:text="@id/duration"
+                android:layout_width="60dp"
+                android:layout_margin="1dp"
+                android:textColor="@android:color/white"
+                android:background="@android:color/black"
+                />
+            <TextView
+                android:id="@+id/results_ChgLbl"
+                android:text="@id/changes"
+                android:layout_width="60dp"
+                android:layout_margin="1dp"
+                android:textColor="@android:color/white"
+                android:background="@android:color/black"
+                />
+            <TextView
+                android:id="@+id/results_PlatLbl"
+                android:text="@id/trail"
+                android:layout_width="60dp"
+                android:layout_margin="1dp"
+                android:textColor="@android:color/white"
+                android:background="@android:color/black"
+                />
+        </TableRow>
+    </TableLayout>
     <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

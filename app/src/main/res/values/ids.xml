@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- MainActivity -->
-    <item name="from" type="id">Von:</item>
-    <item name="to" type="id">Nach:</item>
+    <item name="from" type="id">Von: </item>
+    <item name="to" type="id">Nach: </item>
     <item name="reverseButton" type="id">Umkehren</item>
     <item name="search" type="id">Verbindung suchen</item>
     <item name="changeDateButton" type="id">Datum auswählen</item>
@@ -14,8 +14,8 @@
     <!-- SearchResultsOverview -->
     <item name="resultOverviewTitle" type="id">Verbindungen</item>
     <!-- Header -->
-    <item name="date" type="id">Datum</item>
-    <item name="tavelTime" type="id">Zeit</item>
+    <item name="date" type="id">Datum: </item>
+    <item name="tavelTime" type="id">Zeit: </item>
     <!-- Result Header -->
     <item name="off" type="id">Ab</item>
     <item name="on" type="id">An</item>

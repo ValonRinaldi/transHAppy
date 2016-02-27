@@ -50,7 +50,7 @@ public class SearchTest {
     public void testShowElements() {
         onView(withId(R.id.requestFrom)).check(matches(withText(FROM)));
         onView(withId(R.id.searchFromText));
-        onView(withId(R.id.requestTo)).check(matches(withText(TO)));
+        onView(withId(R.id.to)).check(matches(withText(TO)));
         onView(withId(R.id.searchToText));
         onView(withId(R.id.btnChangeDate)).check(matches(withText(CHANGE_DATE)));
         onView(withId(R.id.dpResult));
@@ -65,6 +65,6 @@ public class SearchTest {
         onView(withId(R.id.searchToText)).perform(typeText(DESTINATION));
         onView(withId(R.id.dpResult)).perform(PickerActions.setDate(YEAR, MONTH_OF_YEAR, DAY_OF_MONTH));
         onView(withId(R.id.tpResult)).perform(PickerActions.setTime(HOUR, MINUTE));
-        onView(withId(R.id.sarchButton)).perform(click());
+        onView(withId(R.id.searchButton)).perform(click());
     }
 }

@@ -41,14 +41,12 @@ public class MainActivity extends AppCompatActivity  {
     private Button btnChangeDate;
 
     private Date date;
-    public SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
 
     //Time
     private TimePicker tpResult;
     private Button btnChangeTime;
 
     private Date time;
-    SimpleDateFormat stf = new SimpleDateFormat("HH:mm");
 
     //Departure & Arrival
     private RadioGroup rGrDepArr;
@@ -58,9 +56,6 @@ public class MainActivity extends AppCompatActivity  {
 
     //Search
     private Button btnSearch;
-
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -141,7 +136,7 @@ public class MainActivity extends AppCompatActivity  {
         public void onDateSet(DatePicker view, int selectedYear,
                               int selectedMonth, int selectedDay) {
             try {
-                date = sdf.parse(selectedDay + "." + selectedMonth + "." + selectedYear);
+                date = SearchParams.sdf.parse(selectedDay + "." + selectedMonth + "." + selectedYear);
             } catch (ParseException e) {
                 e.printStackTrace();
             }
@@ -156,7 +151,7 @@ public class MainActivity extends AppCompatActivity  {
         @Override
         public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
             try {
-                time = stf.parse(hourOfDay + ":" + minute);
+                time = SearchParams.stf.parse(hourOfDay + ":" + minute);
             } catch (ParseException e) {
                 e.printStackTrace();
             }

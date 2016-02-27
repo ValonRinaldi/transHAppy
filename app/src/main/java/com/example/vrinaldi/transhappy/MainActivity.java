@@ -190,10 +190,12 @@ public class MainActivity extends AppCompatActivity  {
         @Override
         public void onClick(View v) {
             if(from.getText().toString().isEmpty()) {
+                //TODO: multi language e.g. R.id.msg
                 showErrorMessage("Bitte Abfahrtsort eingeben");
                 return;
             }
             if(to.getText().toString().isEmpty()) {
+                //TODO: multi language e.g. R.id.msg
                 showErrorMessage("Bitte Zielort eingeben");
                 return;
             }

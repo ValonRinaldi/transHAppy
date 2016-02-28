@@ -18,7 +18,6 @@ public class ConnectionWorker extends AsyncTask<SearchParams, Integer, Connectio
     protected ConnectionList doInBackground(SearchParams... params) {
         conList = new ConnectionList();
         repo = OpenTransportRepositoryFactory.CreateOnlineOpenTransportRepository();
-        conList = repo.searchConnections(SearchParams.from, SearchParams.to);
         conList = repo.searchConnections(
                     SearchParams.from,
                     SearchParams.to,

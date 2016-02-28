@@ -10,6 +10,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
@@ -88,6 +91,33 @@ public class MainActivity extends AppCompatActivity  {
         btnSearch = (Button) findViewById(R.id.searchButton);
         btnSearch.setOnClickListener(searchBtnListener);
     }
+
+    //Create app bar menu
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_mainactivity, menu);
+        return true;
+    }
+
+    //Defines how app bar menu acts
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.about:
+
+                Intent intent = new Intent(MainActivity.this, About.class);
+                startActivity(intent);
+                return true;
+
+
+            default:
+                // If we got here, the user's action was not recognized.
+                // Invoke the superclass to handle it.
+                return super.onOptionsItemSelected(item);
+
+        }
+    }
+
 
     private void setArrDepRadioBtn() {
         rGrDepArr = (RadioGroup) findViewById(R.id.rGrDepArr);
@@ -244,11 +274,11 @@ public class MainActivity extends AppCompatActivity  {
         @Override
         public void onClick(View v) {
             if(from.getText().toString().isEmpty()) {
-                showErrorMessage(String.valueOf(R.string.missingFrom));
+                showErrorMessage(MainActivity.this.getString(R.string.missingFrom));
                 return;
             }
-            if(to.getText().toString().isEmpty()) {
-                showErrorMessage(R.string.missingTo);
+           if(to.getText().toString().isEmpty()) {
+                showErrorMessage(MainActivity.this.getString(R.string.missingTo));
                 return;
             }
 

@@ -17,8 +17,8 @@
     <item name="date" type="id">Date: </item>
     <item name="tavelTime" type="id">Time: </item>
     <!-- Result Header -->
-    <item name="off" type="id">Off</item>
-    <item name="on" type="id">On</item>
+    <item name="off" type="id">From</item>
+    <item name="on" type="id">To</item>
     <item name="duration" type="id">Duration</item>
     <item name="changes" type="id">Chg.</item>
     <item name="trail" type="id">Tail</item>

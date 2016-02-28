@@ -95,7 +95,7 @@ public class SearchResultsOverview extends AppCompatActivity {
         return result;
     }
 
-    //TODO: Listener is not working proper -> Duplicates Results
+
     private View.OnClickListener btnEarlierListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -147,7 +147,7 @@ public class SearchResultsOverview extends AppCompatActivity {
         conListResult.setConnections(newConnectionList);
         listView.setAdapter(new ConnectionAdapter(SearchResultsOverview.this, conListResult.getConnections()));
 
-        //TODO: Update Date doesn't work proper
+
         String timestamp = newConnectionList.get(FIRST_CONNECTION).getFrom().getDeparture();
         dateValue.setText(timestamp.substring(8, 10) + "." + timestamp.substring(5, 7) + "." + timestamp.substring(0, 4));
         timeValue.setText(timestamp.substring(11, 16));

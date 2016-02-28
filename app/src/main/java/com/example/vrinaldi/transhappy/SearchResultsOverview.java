@@ -95,6 +95,7 @@ public class SearchResultsOverview extends AppCompatActivity {
         return result;
     }
 
+    //TODO: Listener is not working proper -> Duplicates Results
     private View.OnClickListener btnEarlierListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {

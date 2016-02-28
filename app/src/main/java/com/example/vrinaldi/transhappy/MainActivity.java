@@ -239,7 +239,6 @@ public class MainActivity extends AppCompatActivity  {
         }
     };
 
-
     private View.OnClickListener searchBtnListener = new View.OnClickListener() {
         @TargetApi(Build.VERSION_CODES.M)
         @Override

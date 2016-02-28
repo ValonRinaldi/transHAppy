@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:paddingTop="10dp"
         >
-        <!-- Header Title -->
+        <!-- Title -->
         <TableRow
             android:id="@+id/headerRow"
             android:layout_width="wrap_content"
@@ -33,7 +33,7 @@
                 android:textColor="@android:color/black"
                 />
         </TableRow>
-        <!-- Header From -->
+        <!-- From -->
         <TableRow
             android:id="@+id/fromHeaderRow"
             android:layout_width="wrap_content"
@@ -54,7 +54,7 @@
                 android:paddingLeft="4dp"
                 />
         </TableRow>
-        <!-- Header To -->
+        <!-- To -->
         <TableRow
             android:id="@+id/toHeaderRow"
             android:layout_width="wrap_content"
@@ -74,7 +74,7 @@
                 android:paddingLeft="4dp"
                 />
         </TableRow>
-        <!-- Header Date -->
+        <!-- Date -->
         <TableRow
             android:id="@+id/dateHeader"
             android:layout_width="wrap_content"
@@ -94,7 +94,7 @@
                 android:paddingLeft="4dp"
                 />
         </TableRow>
-        <!-- Header Time -->
+        <!-- Time -->
         <TableRow
             android:id="@+id/timeHeader"
             android:layout_width="wrap_content"
@@ -179,6 +179,7 @@
         android:id="@+id/listView"
         >
     </ListView>
+    <!-- Earlier & Later Buttons-->
     <TableLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

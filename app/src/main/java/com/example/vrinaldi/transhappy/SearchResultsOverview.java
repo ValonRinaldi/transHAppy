@@ -15,6 +15,8 @@ import com.example.vrinaldi.transhappy.utils.SearchParams;
 
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
@@ -24,8 +26,11 @@ import ch.schoeb.opendatatransport.model.ConnectionList;
 
 /**
  * Created by martius on 20.02.16.
+ *
  */
 public class SearchResultsOverview extends AppCompatActivity {
+    public static final int FIRST_CONNECTION = 0;
+    public static final int EXTRA_MINUTES = 1;
 
     private TextView fromValue;
     private TextView toValue;
@@ -90,11 +95,12 @@ public class SearchResultsOverview extends AppCompatActivity {
         return result;
     }
 
-    //TODO: Listener is not working proper -> Duplicates Results
     private View.OnClickListener btnEarlierListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            init(true);
+            newConnectionList = new ArrayList<>();
+            refConnection = conListResult.getConnections().get(FIRST_CONNECTION);
+            SearchParams.isArrival = true;
             try {
                 SearchParams.time = SearchParams.stf.parse(refConnection.getTo().getArrival().substring(11, 16));
             } catch (ParseException e) {
@@ -109,13 +115,21 @@ public class SearchResultsOverview extends AppCompatActivity {
         }
     };
 
-    //TODO: Listener is not working proper -> Duplicates Results
     private View.OnClickListener btnLaterListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            init(false);
+            newConnectionList = new ArrayList<>();
+            int resSize = conListResult.getConnections().size();
+            refConnection = conListResult.getConnections().get(resSize - 1);
+            SearchParams.isArrival = false;
             try {
-                SearchParams.time = SearchParams.stf.parse(refConnection.getFrom().getDeparture().substring(11, 16));
+                String timeAsStr = refConnection.getFrom().getDeparture().substring(11, 16);
+                Date time = SearchParams.stf.parse(timeAsStr);
+                Calendar cal = Calendar.getInstance();
+                cal.setTime(time);
+                cal.add(Calendar.MINUTE, EXTRA_MINUTES);
+                SearchParams.time = cal.getTime();
+
             } catch (ParseException e) {
                 e.printStackTrace();
             }
@@ -128,18 +142,12 @@ public class SearchResultsOverview extends AppCompatActivity {
         }
     };
 
-    private void init(boolean isArrival) {
-        newConnectionList = new ArrayList<>();
-        refConnection = conListResult.getConnections().get(1);
-        SearchParams.isArrival = isArrival;
-    }
-
     private void update() {
         conListResult.setConnections(newConnectionList);
         listView.setAdapter(new ConnectionAdapter(SearchResultsOverview.this, conListResult.getConnections()));
 
         //TODO: Update Date doesn't work proper
-        String timestamp = conListResult.getConnections().get(0).getFrom().getDeparture();
+        String timestamp = newConnectionList.get(FIRST_CONNECTION).getFrom().getDeparture();
         dateValue.setText(timestamp.substring(8, 10) + "." + timestamp.substring(5, 7) + "." + timestamp.substring(0, 4));
         timeValue.setText(timestamp.substring(11, 16));
     }

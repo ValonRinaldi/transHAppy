@@ -22,12 +22,14 @@
                 android:text="@id/from"
                 android:textSize="18dp"
                 />
-            <EditText
-                android:id="@+id/searchFromText"
+            <AutoCompleteTextView
+                android:id="@+id/fromStation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="18dp"
-                />
+                android:inputType="textNoSuggestions|textAutoComplete"
+                android:imeOptions="actionNext"
+                android:selectAllOnFocus="true"
+                android:completionThreshold="1" />
         </TableRow>
         <!-- TO -->
         <TableRow
@@ -42,12 +44,14 @@
                 android:layout_height="wrap_content"
                 android:textSize="18dp"
                 />
-            <EditText
-                android:id="@+id/searchToText"
+            <AutoCompleteTextView
+                android:id="@+id/toStation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="18dp"
-                />
+                android:inputType="textNoSuggestions|textAutoComplete"
+                android:imeOptions="actionNext"
+                android:selectAllOnFocus="true"
+                android:completionThreshold="1" />
         </TableRow>
         <!-- Reverse Radio Button -->
         <TableRow

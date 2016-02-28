@@ -10,7 +10,6 @@
     <item name="arrival" type="id">Ankunft</item>
     <item name="departure" type="id">Abfahrt</item>
 
-
     <!-- SearchResultsOverview -->
     <item name="resultOverviewTitle" type="id">Verbindungen</item>
     <!-- Header -->
